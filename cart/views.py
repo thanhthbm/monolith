@@ -20,7 +20,6 @@ def add_to_cart(request, book_id):
         cart=cart,
         book=book,
         defaults={'quantity': 1},
-        price=book.price,
     )
 
     if not created:
