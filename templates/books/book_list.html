@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book List</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<h2>Book Catalog</h2>
+
+<a href="/cart/">View Cart</a> |
+<a href="/accounts/logout/">Logout</a>
+<hr>
+
+<ul>
+    {% for book in books %}
+        <li>
+            <div class="book">
+                <b>{{ book.title }}</b><br>
+                Author: {{ book.author }}<br>
+                Price: {{ book.price }}<br>
+                <a href="/cart/add/{{ book.id }}/">Add to Cart</a>
+            </div>
+        </li>
+        <hr>
+    {% empty %}
+        <li>No books available</li>
+    {% endfor %}
+</ul>
+
+</body>
+</html>
